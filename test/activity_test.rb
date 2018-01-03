@@ -39,4 +39,26 @@ class ActivityTest < Minitest::Test
 
     assert_equal 15, activity.total_cost
   end
+
+  def test_it_can_calculat_cost_per_participant
+    activity = Activity.new('hiking', 15, {"Megan" => 4,
+      "Molly" => 5,
+      "Connor" => 0})
+
+    cost_per_participant = activity.cost_per_participant
+
+    assert_equal 5, cost_per_participant
+  end
+
+  def test_it_can_calculat_what_each_participant_owes
+    activity = Activity.new('hiking', 15, {"Megan" => 5,
+      "Molly" => 10,
+      "Connor" => 0})
+
+    owed = activity.participants_owe
+
+    assert_instance_of Array, owed
+    assert_equal 5, owed[2]["Connor"]
+    assert_equal -5, owed[1]["Molly"]
+  end
 end
