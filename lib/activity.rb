@@ -1,17 +1,11 @@
 class Activity
   attr_reader :name,
+              :total_cost,
               :participants
 
-  def initialize(name, participants = {})
+  def initialize(name, total_cost = 0, participants = {})
     @name         = name
+    @total_cost   = total_cost
     @participants = participants
-  end
-
-  def total_cost
-    sum = 0
-    participants.each do |name, amount|
-      sum += amount
-    end
-    sum
   end
 end

@@ -13,7 +13,7 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_has_participants
-    activity = Activity.new('hiking', {"Megan" => 5,
+    activity = Activity.new('hiking', 15, {"Megan" => 5,
       "Molly" => 5,
       "Connor" => 0})
 
@@ -22,7 +22,7 @@ class ActivityTest < Minitest::Test
   end
 
   def test_participants_can_be_added_to_activities
-    activity = Activity.new('hiking', {"Megan" => 4,
+    activity = Activity.new('hiking', 15, {"Megan" => 4,
       "Molly" => 5,
       "Connor" => 0})
 
@@ -33,12 +33,10 @@ class ActivityTest < Minitest::Test
   end
 
   def test_activity_has_total_cost
-    activity = Activity.new('hiking', {"Megan" => 4,
+    activity = Activity.new('hiking', 15, {"Megan" => 4,
       "Molly" => 5,
       "Connor" => 0})
 
-    cost = activity.total_cost
-
-    assert_equal 9, cost
+    assert_equal 15, activity.total_cost
   end
 end
