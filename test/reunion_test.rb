@@ -47,4 +47,23 @@ class ReunionTest < Minitest::Test
 
     assert_equal 132, total_cost
   end
+
+  def test_it_can_calculate_total_paid_per_person
+    skip
+    hiking = Activity.new('hiking', 15, {"Megan" => 5,
+      "Molly" => 10,
+      "Connor" => 0})
+    cycling = Activity.new('cycling', 45, {"Megan" => 15,
+      "Molly" => 0,
+      "Connor" => 30})
+    fishing = Activity.new('fishing', 72, {"Megan" => 20,
+      "Molly" => 40,
+      "Connor" => 20})
+    reunion = Reunion.new('Carbondale', [hiking, cycling, fishing])
+
+    paid_per_person = reunion.total_paid_per_person
+
+    assert_instance_of Array, paid_per_person
+    assert paid_per_person.include?({"Megan"=>40})
+  end
 end

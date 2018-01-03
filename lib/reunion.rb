@@ -18,4 +18,22 @@ class Reunion
       sum += activity.total_cost
     end
   end
+
+  def total_paid_per_person
+    # people = activities.map do |activity|
+    #   activity.participants
+    # end
+    #
+    # people = people.map do |activity|
+    #   activity.map do |key, value|
+    #     [key, value]
+    #   end
+    # end.flatten(1)
+    #
+    # people = people.group_by do |person|
+    #   person[0]
+    # end
+
+    require 'pry'; binding.pry
+  end
 end
