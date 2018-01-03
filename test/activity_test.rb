@@ -26,7 +26,7 @@ class ActivityTest < Minitest::Test
       "Molly" => 5,
       "Connor" => 0})
 
-    activity.participants["Andy"] = 6
+    activity.add_participant("Andy", 6)
 
     assert_equal 4, activity.participants.count
     assert_equal 6, activity.participants["Andy"]

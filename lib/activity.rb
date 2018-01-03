@@ -9,6 +9,10 @@ class Activity
     @participants = participants
   end
 
+  def add_participant(name, amount)
+    participants[name] = amount
+  end
+
   def cost_per_participant
     total_cost / participants.count
   end
