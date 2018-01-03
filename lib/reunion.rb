@@ -9,7 +9,13 @@ class Reunion
     @activities = activities
   end
 
-  def add_activity(name)
-    activities << Activity.new(name)
+  def add_activity(name, total_cost = 0, participants = {})
+    activities << Activity.new(name, total_cost, participants)
+  end
+
+  def total_cost
+    activities.reduce(0) do |sum, activity|
+      sum += activity.total_cost
+    end
   end
 end
